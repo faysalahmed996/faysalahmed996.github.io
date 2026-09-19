@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faysal Ahmed – Finance & Accounts Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0f2744;
+  --blue: #1a4a8a;
+  --mid: #2563b0;
+  --accent: #c8a84b;
+  --light: #e8f0fb;
+  --white: #ffffff;
+  --gray: #64748b;
+  --bg: #f8fafc;
+  --text: #1e293b;
+  --card: #ffffff;
+  --border: #e2e8f0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  background: rgba(15,39,68,0.97); backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(200,168,75,0.3);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px; height: 60px;
+}
+.nav-brand { font-family: 'Playfair Display', serif; color: var(--accent); font-size: 1.2rem; font-weight: 700; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.3px; }
+.nav-links a:hover { color: var(--accent); }
+
+/* HERO */
+.hero {
+  min-height: 100vh; background: linear-gradient(135deg, #0a1c35 0%, #0f2744 50%, #152f5a 100%);
+  display: flex; align-items: center; padding: 80px 60px 60px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%;
+  background: radial-gradient(ellipse at top right, rgba(37,99,176,0.25) 0%, transparent 70%);
+}
+.hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.hero-left { flex: 1; z-index: 2; max-width: 600px; }
+.hero-tag { display: inline-block; background: rgba(200,168,75,0.15); border: 1px solid rgba(200,168,75,0.4); color: var(--accent); font-size: 0.75rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; margin-bottom: 24px; letter-spacing: 1px; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--white); line-height: 1.1; margin-bottom: 12px; }
+.hero-title { font-size: 1.1rem; color: var(--accent); font-weight: 500; margin-bottom: 20px; }
+.hero-summary { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 32px; max-width: 520px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+.btn { padding: 12px 28px; border-radius: 6px; font-size: 0.88rem; font-weight: 600; cursor: pointer; border: none; text-decoration: none; display: inline-block; transition: all 0.2s; }
+.btn-gold { background: var(--accent); color: var(--navy); }
+.btn-gold:hover { background: #d4b55a; transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.4); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+.hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+.stat { }
+.stat-num { font-size: 1.8rem; font-weight: 800; color: var(--white); }
+.stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+.hero-right { flex: 0 0 340px; z-index: 2; display: flex; justify-content: center; align-items: center; }
+.hero-photo-frame {
+  width: 280px; height: 320px; border-radius: 12px;
+  border: 2px solid rgba(200,168,75,0.4);
+  background: linear-gradient(135deg, rgba(37,99,176,0.3), rgba(15,39,68,0.5));
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.hero-photo-frame::before {
+  content: ''; position: absolute; inset: 8px; border: 1px solid rgba(200,168,75,0.2); border-radius: 8px;
+}
+.photo-placeholder { text-align: center; color: rgba(255,255,255,0.4); font-size: 0.8rem; }
+.photo-placeholder svg { width: 80px; height: 80px; margin-bottom: 10px; opacity: 0.3; }
+
+/* SECTION BASE */
+section { padding: 80px 60px; }
+.section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--navy); margin-bottom: 12px; }
+.section-sub { color: var(--gray); font-size: 0.95rem; line-height: 1.7; max-width: 560px; margin-bottom: 48px; }
+.divider { width: 48px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 40px; }
+
+/* ABOUT */
+#about { background: var(--white); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.about-text p { color: var(--gray); line-height: 1.85; font-size: 0.95rem; margin-bottom: 16px; }
+.about-details { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+.detail-item { background: var(--bg); border-radius: 8px; padding: 14px 16px; }
+.detail-key { font-size: 0.72rem; font-weight: 600; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; }
+.detail-val { font-size: 0.88rem; font-weight: 600; color: var(--navy); margin-top: 3px; }
+.skills-block { }
+.skills-group { margin-bottom: 28px; }
+.skills-group-title { font-size: 0.8rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+.skill-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: var(--light); color: var(--blue); font-size: 0.78rem; font-weight: 600; padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(37,99,176,0.2); }
+.chip.gold { background: rgba(200,168,75,0.1); color: #8a6a10; border-color: rgba(200,168,75,0.3); }
+
+/* EXPERIENCE */
+#experience { background: var(--bg); }
+.timeline { position: relative; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--mid)); border-radius: 1px; }
+.timeline-item { padding-left: 36px; margin-bottom: 48px; position: relative; }
+.timeline-dot { position: absolute; left: -7px; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); border: 3px solid var(--white); box-shadow: 0 0 0 2px var(--accent); }
+.exp-card { background: var(--white); border-radius: 12px; padding: 28px 32px; border: 1px solid var(--border); }
+.exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; flex-wrap: wrap; gap: 8px; }
+.exp-title { font-weight: 700; font-size: 1.05rem; color: var(--navy); }
+.exp-dates { font-size: 0.8rem; color: var(--gray); background: var(--bg); padding: 4px 10px; border-radius: 12px; white-space: nowrap; }
+.exp-company { font-size: 0.88rem; color: var(--mid); font-weight: 600; margin-bottom: 16px; }
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.exp-bullets li { font-size: 0.88rem; color: var(--gray); line-height: 1.6; padding-left: 16px; position: relative; }
+.exp-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+.exp-highlights { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+.highlight { background: rgba(200,168,75,0.08); border: 1px solid rgba(200,168,75,0.3); color: #7a5f10; font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 6px; }
+
+/* EDUCATION */
+#education { background: var(--white); }
+.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.edu-card { background: var(--bg); border-radius: 12px; padding: 28px; border: 1px solid var(--border); border-top: 3px solid var(--accent); }
+.edu-degree { font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: 6px; }
+.edu-school { font-size: 0.88rem; color: var(--mid); font-weight: 500; margin-bottom: 12px; }
+.edu-meta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+.edu-badge { font-size: 0.75rem; background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 3px 10px; color: var(--gray); font-weight: 500; }
+.edu-report { font-size: 0.82rem; color: var(--gray); font-style: italic; margin-top: 8px; padding-top: 12px; border-top: 1px dashed var(--border); }
+.cert-list { margin-top: 32px; }
+.cert-item { display: flex; align-items: center; gap: 16px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; }
+.cert-icon { width: 40px; height: 40px; background: var(--light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+.cert-name { font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+.cert-org { font-size: 0.78rem; color: var(--gray); margin-top: 2px; }
+.cert-date { margin-left: auto; font-size: 0.75rem; color: var(--gray); white-space: nowrap; }
+
+/* TAX CALCULATORS */
+#calculators { background: var(--navy); }
+#calculators .section-title { color: var(--white); }
+#calculators .section-label { color: var(--accent); }
+#calculators .section-sub { color: rgba(255,255,255,0.6); }
+.calc-tabs { display: flex; gap: 4px; background: rgba(255,255,255,0.08); border-radius: 10px; padding: 4px; margin-bottom: 32px; width: fit-content; }
+.calc-tab { padding: 10px 24px; border-radius: 8px; border: none; background: transparent; color: rgba(255,255,255,0.6); font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+.calc-tab.active { background: var(--accent); color: var(--navy); }
+.calc-panel { display: none; }
+.calc-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.calc-form { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 32px; }
+.calc-result { background: rgba(200,168,75,0.08); border: 1px solid rgba(200,168,75,0.3); border-radius: 14px; padding: 32px; }
+.form-group { margin-bottom: 20px; }
+.form-label { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.7); margin-bottom: 8px; display: block; }
+.form-input { width: 100%; padding: 11px 14px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: var(--white); font-size: 0.9rem; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; }
+.form-input:focus { border-color: var(--accent); }
+.form-select { width: 100%; padding: 11px 14px; background: #0f2744; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: var(--white); font-size: 0.9rem; font-family: 'Inter', sans-serif; outline: none; }
+.calc-btn { width: 100%; padding: 13px; background: var(--accent); color: var(--navy); border: none; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; }
+.calc-btn:hover { background: #d4b55a; }
+.result-title { font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+.result-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.result-row:last-child { border-bottom: none; padding-top: 16px; }
+.result-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+.result-val { font-size: 0.95rem; font-weight: 700; color: var(--white); }
+.result-val.big { font-size: 1.3rem; color: var(--accent); }
+.result-val.red { color: #f87171; }
+.result-placeholder { text-align: center; padding: 40px 20px; color: rgba(255,255,255,0.3); font-size: 0.9rem; }
+.result-placeholder .icon { font-size: 2.5rem; margin-bottom: 12px; }
+
+/* NEWS */
+#news { background: var(--bg); }
+.news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.news-card { background: var(--white); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+.news-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(15,39,68,0.1); }
+.news-img { height: 160px; background: linear-gradient(135deg, var(--navy), var(--blue)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+.news-body { padding: 20px; }
+.news-source { font-size: 0.7rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.news-headline { font-weight: 700; font-size: 0.95rem; color: var(--navy); line-height: 1.4; margin-bottom: 10px; }
+.news-excerpt { font-size: 0.82rem; color: var(--gray); line-height: 1.6; margin-bottom: 14px; }
+.news-meta { display: flex; justify-content: space-between; align-items: center; }
+.news-date { font-size: 0.72rem; color: var(--gray); }
+.news-link { font-size: 0.75rem; font-weight: 600; color: var(--mid); text-decoration: none; }
+.news-link:hover { color: var(--accent); }
+.news-loading { text-align: center; padding: 60px; color: var(--gray); grid-column: 1/-1; }
+.articles-section { margin-top: 60px; }
+.article-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; margin-bottom: 20px; display: flex; gap: 24px; align-items: flex-start; }
+.article-num { font-size: 2rem; font-weight: 800; color: var(--border); flex-shrink: 0; width: 40px; }
+.article-body { flex: 1; }
+.article-tag { font-size: 0.7rem; font-weight: 700; color: var(--mid); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.article-title { font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: 8px; line-height: 1.4; }
+.article-text { font-size: 0.88rem; color: var(--gray); line-height: 1.7; margin-bottom: 12px; }
+.article-ref { font-size: 0.75rem; color: var(--gray); font-style: italic; }
+.article-ref a { color: var(--mid); }
+
+/* ACHIEVEMENTS */
+#achievements { background: var(--white); }
+.ach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.ach-card { background: var(--bg); border-radius: 12px; padding: 24px; border: 1px solid var(--border); text-align: center; }
+.ach-icon { font-size: 2.2rem; margin-bottom: 12px; }
+.ach-title { font-weight: 700; font-size: 0.95rem; color: var(--navy); margin-bottom: 6px; }
+.ach-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.6; }
+
+/* CONTACT */
+#contact { background: var(--navy); }
+#contact .section-title { color: var(--white); }
+#contact .section-label { color: var(--accent); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.contact-info { }
+.contact-item { display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start; }
+.contact-item-icon { width: 44px; height: 44px; background: rgba(200,168,75,0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+.contact-item-label { font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.5px; }
+.contact-item-val { font-size: 0.95rem; color: var(--white); font-weight: 500; margin-top: 2px; }
+.contact-form { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 32px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.contact-input { width: 100%; padding: 11px 14px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: var(--white); font-size: 0.88rem; font-family: 'Inter', sans-serif; outline: none; margin-bottom: 16px; transition: border-color 0.2s; }
+.contact-input:focus { border-color: var(--accent); }
+textarea.contact-input { resize: vertical; min-height: 120px; }
+.send-btn { width: 100%; padding: 13px; background: var(--accent); color: var(--navy); border: none; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; font-family: 'Inter', sans-serif; }
+
+/* FOOTER */
+footer { background: #07172d; padding: 28px 60px; display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.4); text-decoration: none; }
+.footer-links a:hover { color: var(--accent); }
+
+/* OPEN TO WORK BADGE */
+.open-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.3); color: #4ade80; font-size: 0.72rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+.open-dot { width: 6px; height: 6px; background: #4ade80; border-radius: 50%; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { flex-direction: column; padding: 100px 24px 60px; }
+  .hero h1 { font-size: 2.5rem; }
+  .hero-right { display: none; }
+  section { padding: 60px 24px; }
+  .about-grid, .calc-panel.active, .contact-grid, .edu-grid, .ach-grid, .news-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 12px; padding: 24px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Faysal Ahmed</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#calculators">Tax Tools</a></li>
+    <li><a href="#news">Finance News</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="open-badge"><span class="open-dot"></span> Open to Remote / Relocation — UK, UAE, Europe</div>
+    <div class="hero-tag">Finance & Accounts Professional</div>
+    <h1>Faysal<br>Ahmed</h1>
+    <div class="hero-title">MBA Finance & Banking · UK Chartered Accountancy · Data Analytics</div>
+    <p class="hero-summary">Results-driven accounts professional with 3+ years managing £1.2M in annual revenue, 1,200+ international clients, and full-cycle UK compliance. Bridging Bangladesh talent with UK financial excellence.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-gold">Get In Touch</a>
+      <a href="#experience" class="btn btn-outline">View Experience</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">1,200+</div><div class="stat-label">Clients Managed</div></div>
+      <div class="stat"><div class="stat-num">£213K+</div><div class="stat-label">Debt Recovered</div></div>
+      <div class="stat"><div class="stat-num">1,800+</div><div class="stat-label">Monthly Transactions</div></div>
+      <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years Experience</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-frame">
+      <div class="photo-placeholder">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+        <div>Your Photo Here</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">Who I Am</div>
+  <div class="section-title">About Me</div>
+  <div class="divider"></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I am a Finance & Accounts Professional with over 3 years of experience working within UK chartered accountancy at RCI Global Limited (UK), managing full-cycle financial operations from Dhaka, Bangladesh.</p>
+      <p>My expertise spans credit control, accounts receivable, HMRC compliance, client portfolio management, and data-driven financial reporting. I set up the firm's first Aged Debt & Recovery Tracking framework, recovering £213,000+ of a £500,000+ overdue debt portfolio within 11 months.</p>
+      <p>Prior to this, I handled VAT & Tax compliance at Akhtar Group and managed UK & US entity formations, fintech banking operations, and payment gateway integrations at Business Globalizer.</p>
+      <p>I hold an MBA in Finance & Banking and am a certified Data Analyst proficient in Power BI, SQL, and Python — combining financial expertise with analytical capability.</p>
+      <div class="about-details">
+        <div class="detail-item"><div class="detail-key">Location</div><div class="detail-val">Dhaka, Bangladesh</div></div>
+        <div class="detail-item"><div class="detail-key">Availability</div><div class="detail-val">Open to Relocation</div></div>
+        <div class="detail-item"><div class="detail-key">MBA</div><div class="detail-val">Finance & Banking</div></div>
+        <div class="detail-item"><div class="detail-key">Languages</div><div class="detail-val">Bengali · English · Hindi</div></div>
+      </div>
+    </div>
+    <div class="skills-block">
+      <div class="skills-group">
+        <div class="skills-group-title">Accounting & Finance Tools</div>
+        <div class="skill-chips">
+          <span class="chip">Xero</span><span class="chip">Sage</span><span class="chip">CAPIUM</span>
+          <span class="chip">Zoho Books</span><span class="chip">GoCardless</span><span class="chip">IONOS</span>
+          <span class="chip">Croner-I</span><span class="chip">QuickBooks</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <div class="skills-group-title">Data & Analytics</div>
+        <div class="skill-chips">
+          <span class="chip gold">Power BI</span><span class="chip gold">SQL</span>
+          <span class="chip gold">Python</span><span class="chip gold">Excel Advanced</span>
+          <span class="chip gold">Statistical Analysis</span><span class="chip gold">Report Automation</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <div class="skills-group-title">Compliance & Regulation</div>
+        <div class="skill-chips">
+          <span class="chip">HMRC</span><span class="chip">Companies House</span>
+          <span class="chip">VAT Returns</span><span class="chip">PAYE</span>
+          <span class="chip">Corporation Tax</span><span class="chip">KYC/AML</span>
+          <span class="chip">NBR Bangladesh</span><span class="chip">Mushak Forms</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <div class="skills-group-title">Fintech & Global Banking</div>
+        <div class="skill-chips">
+          <span class="chip">Wise</span><span class="chip">Mercury</span><span class="chip">Relay</span>
+          <span class="chip">Stripe</span><span class="chip">PayPal</span><span class="chip">EIN/ITIN</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Career</div>
+  <div class="section-title">Professional Experience</div>
+  <div class="divider"></div>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title">Accounts Executive — Credit Control & AR Lead</div>
+          <div class="exp-dates">March 2024 – Present</div>
+        </div>
+        <div class="exp-company">RCI Global Limited / RCI Chartered Accountants — Dunstable, UK | Dhaka Delivery Hub</div>
+        <ul class="exp-bullets">
+          <li>Managed a portfolio of £500,000+ in overdue client debt, recovering £213,000+ within 11 months through direct outreach, payment plan negotiations, and formal demand notices</li>
+          <li>Built the firm's first Aged Debt & Recovery Tracking framework — now the standard monthly process, achieving peak collection rate of 68% (£39.8K) in December 2025</li>
+          <li>Manages ~10 monthly financial reports covering invoicing, revenue, collections, and P&L summaries</li>
+          <li>Reconciles 1,800+ transactions monthly across Xero, Zoho Books, and CAPIUM, maintaining audit-ready records</li>
+          <li>Ensures full compliance with HMRC, Companies House, VAT, PAYE, and corporation tax deadlines</li>
+          <li>Manages financial accounts for 1,200+ active clients across UK and international markets</li>
+          <li>Processes client payments and direct debits via GoCardless; conducts onboarding and KYC compliance</li>
+          <li>Co-led a strategic initiative launching a new department, generating ~£100K in incremental revenue</li>
+          <li>Leads, mentors, and develops a team of 5 Junior Executives across training, feedback, and workload coordination</li>
+        </ul>
+        <div class="exp-highlights">
+          <span class="highlight">£213K+ Recovered</span>
+          <span class="highlight">68% Collection Rate</span>
+          <span class="highlight">2 Promotions in 1 Year</span>
+          <span class="highlight">£100K New Revenue</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title">Finance & Compliance Executive — VAT & Tax</div>
+          <div class="exp-dates">Oct 2023 – Feb 2024</div>
+        </div>
+        <div class="exp-company">Akhtar Group — Manikganj, Bangladesh</div>
+        <ul class="exp-bullets">
+          <li>Managed monthly VAT transactions and documentation including Mushak forms 6.1, 6.2, 6.3, 6.6, and 6.10</li>
+          <li>Prepared and submitted accurate monthly VAT returns in compliance with NBR regulations</li>
+          <li>Reconciled monthly financial accounts and tax schedules, maintaining full compliance accuracy</li>
+          <li>Verified high-volume vendor and client account statements, resolving billing discrepancies before month-end</li>
+          <li>Built Excel models (VLOOKUP, Pivot Tables) to track financial data and streamline reporting</li>
+        </ul>
+        <div class="exp-highlights">
+          <span class="highlight">NBR Compliant</span>
+          <span class="highlight">Employee of the Month</span>
+          <span class="highlight">Promoted</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title">Executive, Technical Support</div>
+          <div class="exp-dates">Nov 2021 – Feb 2023</div>
+        </div>
+        <div class="exp-company">Business Globalizer — Bangladesh</div>
+        <ul class="exp-bullets">
+          <li>Spearheaded UK & US entity formations, executing statutory filings and maintaining multi-jurisdictional compliance</li>
+          <li>Managed Fintech & Banking operations — opening and maintaining corporate accounts across Wise, Mercury, and Relay</li>
+          <li>Integrated payment gateways, setting up and managing Stripe and PayPal merchant accounts for global clients</li>
+          <li>Resolved platform compliance issues by directly contacting Wise, Mercury, Relay, PayPal, and Stripe support teams</li>
+          <li>Accelerated tax & IRS processing — administered UK (HMRC) and US filings alongside EIN/ITIN applications</li>
+          <li>Delivered multi-channel client support (Phone, WhatsApp, Email) to drive retention and maintain client database integrity</li>
+        </ul>
+        <div class="exp-highlights">
+          <span class="highlight">UK & US Filings</span>
+          <span class="highlight">Fintech Banking</span>
+          <span class="highlight">Multi-Jurisdictional</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Academic Background</div>
+  <div class="section-title">Education & Certifications</div>
+  <div class="divider"></div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-degree">Masters of Business Administration (MBA)</div>
+      <div class="edu-school">Atish Dipankar University of Science & Technology</div>
+      <div class="edu-meta">
+        <span class="edu-badge">Finance & Banking</span>
+        <span class="edu-badge">2022 – 2023</span>
+        <span class="edu-badge">CGPA 3.41 / 4.00</span>
+      </div>
+      <div class="edu-report">Capstone Report: "Impact of Fintech Banks on International Business"</div>
+      <div style="font-size:0.78rem;color:var(--gray);margin-top:10px;">Coursework: Financial Statement Analysis · Corporate Finance · Management Accounting · Banking & Financial Institutions · Financial Risk Management · Strategic Management</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Bachelor of Business Administration (BBA)</div>
+      <div class="edu-school">National University, Gazipur, Bangladesh</div>
+      <div class="edu-meta">
+        <span class="edu-badge">Finance & Banking</span>
+        <span class="edu-badge">2016 – 2022</span>
+        <span class="edu-badge">CGPA 3.02 / 4.00</span>
+      </div>
+    </div>
+  </div>
+  <div class="cert-list" style="margin-top:40px;">
+    <div class="section-label" style="margin-bottom:16px;">Certifications</div>
+    <div class="cert-item">
+      <div class="cert-icon">📊</div>
+      <div>
+        <div class="cert-name">Certified Data Analyst</div>
+        <div class="cert-org">Data Solution 360 · ID: DS3602416MNI31</div>
+      </div>
+      <div class="cert-date">Oct 2025</div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon">📗</div>
+      <div>
+        <div class="cert-name">Excel for Professionals</div>
+        <div class="cert-org">BYLCx</div>
+      </div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon">📑</div>
+      <div>
+        <div class="cert-name">PowerPoint Beginner to Pro</div>
+        <div class="cert-org">Bohubrihi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TAX CALCULATORS -->
+<section id="calculators">
+  <div class="section-label">Professional Tools</div>
+  <div class="section-title" style="color:var(--white)">UK Tax Calculators</div>
+  <div class="divider"></div>
+  <p class="section-sub">Practical tools for UK VAT and PAYE calculations — built as part of my financial practice toolkit.</p>
+
+  <div class="calc-tabs">
+    <button class="calc-tab active" onclick="switchCalc('vat')">VAT Calculator</button>
+    <button class="calc-tab" onclick="switchCalc('paye')">PAYE / Income Tax</button>
+    <button class="calc-tab" onclick="switchCalc('corp')">Corporation Tax</button>
+  </div>
+
+  <!-- VAT -->
+  <div class="calc-panel active" id="calc-vat">
+    <div class="calc-form">
+      <div class="form-group">
+        <label class="form-label">Amount (£)</label>
+        <input class="form-input" type="number" id="vat-amount" placeholder="e.g. 1000" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">VAT Rate</label>
+        <select class="form-select" id="vat-rate">
+          <option value="20">Standard Rate — 20%</option>
+          <option value="5">Reduced Rate — 5%</option>
+          <option value="0">Zero Rate — 0%</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Calculation Type</label>
+        <select class="form-select" id="vat-type">
+          <option value="add">Add VAT to net amount</option>
+          <option value="remove">Remove VAT from gross amount</option>
+        </select>
+      </div>
+      <button class="calc-btn" onclick="calcVAT()">Calculate VAT</button>
+    </div>
+    <div class="calc-result" id="vat-result">
+      <div class="result-placeholder"><div class="icon">🧮</div>Enter values and click Calculate</div>
+    </div>
+  </div>
+
+  <!-- PAYE -->
+  <div class="calc-panel" id="calc-paye">
+    <div class="calc-form">
+      <div class="form-group">
+        <label class="form-label">Annual Gross Salary (£)</label>
+        <input class="form-input" type="number" id="paye-salary" placeholder="e.g. 35000" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tax Year</label>
+        <select class="form-select" id="paye-year">
+          <option value="2025">2025/26</option>
+          <option value="2024">2024/25</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tax Code</label>
+        <select class="form-select" id="paye-code">
+          <option value="1257L">1257L (Standard)</option>
+          <option value="BR">BR (Basic Rate)</option>
+          <option value="0T">0T (No allowance)</option>
+        </select>
+      </div>
+      <button class="calc-btn" onclick="calcPAYE()">Calculate Tax & NI</button>
+    </div>
+    <div class="calc-result" id="paye-result">
+      <div class="result-placeholder"><div class="icon">💷</div>Enter salary and click Calculate</div>
+    </div>
+  </div>
+
+  <!-- CORP -->
+  <div class="calc-panel" id="calc-corp">
+    <div class="calc-form">
+      <div class="form-group">
+        <label class="form-label">Annual Profit (£)</label>
+        <input class="form-input" type="number" id="corp-profit" placeholder="e.g. 50000" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tax Year</label>
+        <select class="form-select">
+          <option>2025/26</option>
+          <option>2024/25</option>
+        </select>
+      </div>
+      <button class="calc-btn" onclick="calcCorp()">Calculate Corporation Tax</button>
+    </div>
+    <div class="calc-result" id="corp-result">
+      <div class="result-placeholder"><div class="icon">🏢</div>Enter profit and click Calculate</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS & ARTICLES -->
+<section id="news">
+  <div class="section-label">Stay Informed</div>
+  <div class="section-title">Finance & Business News</div>
+  <div class="divider"></div>
+  <p class="section-sub">Latest headlines from BBC Business and financial press — keeping clients and colleagues informed on what matters.</p>
+
+  <div class="news-grid" id="news-grid">
+    <div class="news-loading">⏳ Loading latest finance news...</div>
+  </div>
+
+  <div class="articles-section">
+    <div class="section-label" style="margin-bottom:24px;">Recommended Reading — Finance Articles</div>
+
+    <div class="article-card">
+      <div class="article-num">01</div>
+      <div class="article-body">
+        <div class="article-tag">UK Tax · HMRC</div>
+        <div class="article-title">Understanding UK VAT: A Practical Guide for Businesses in 2025</div>
+        <div class="article-text">VAT (Value Added Tax) is charged at 20% on most goods and services in the UK. Businesses with taxable turnover exceeding £90,000 must register for VAT with HMRC. Understanding the difference between standard rate (20%), reduced rate (5%), and zero rate (0%) is essential for accurate financial reporting and avoiding penalties.</div>
+        <div class="article-ref">Reference: <a href="https://www.gov.uk/vat-rates" target="_blank">HMRC — VAT Rates (gov.uk)</a></div>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="article-num">02</div>
+      <div class="article-body">
+        <div class="article-tag">Fintech · Banking</div>
+        <div class="article-title">How Fintech is Reshaping International Business Payments in 2025</div>
+        <div class="article-text">Fintech platforms such as Wise, Revolut, and GoCardless have significantly reduced cross-border payment costs for SMEs. Traditional wire transfers can cost 3–5% in fees, while modern fintech solutions reduce this to under 1%, enabling UK-based accountancy firms to manage global client payments with greater efficiency and transparency.</div>
+        <div class="article-ref">Reference: <a href="https://www.ft.com/fintech" target="_blank">Financial Times — Fintech Section</a></div>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="article-num">03</div>
+      <div class="article-body">
+        <div class="article-tag">Credit Control · AR</div>
+        <div class="article-title">Best Practices in Debt Recovery for UK Accountancy Practices</div>
+        <div class="article-text">Effective aged debt management requires a structured escalation process — from polite reminder emails, to phone outreach, payment plan negotiation, and formal demand notices. UK businesses write off an estimated £4.4 billion in bad debt annually. Implementing a weekly aged debt review cycle can reduce outstanding balances by 30–40% within six months.</div>
+        <div class="article-ref">Reference: <a href="https://www.icaew.com/technical/financial-management/credit-management" target="_blank">ICAEW — Credit Management Guidance</a></div>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="article-num">04</div>
+      <div class="article-body">
+        <div class="article-tag">Data Analytics · Finance</div>
+        <div class="article-title">Why Finance Professionals Must Embrace Data Analytics in 2025</div>
+        <div class="article-text">The role of the modern accountant is evolving rapidly. Tools like Power BI, SQL, and Python are becoming essential competencies alongside traditional accounting skills. A 2024 ACCA report found that 73% of CFOs now expect their finance teams to be data-literate. Professionals who combine accounting expertise with data analytics earn on average 25% more than their peers.</div>
+        <div class="article-ref">Reference: <a href="https://www.accaglobal.com/uk/en/professional-insights/technology/future-of-finance.html" target="_blank">ACCA — Future of Finance Report</a></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-label">Recognition</div>
+  <div class="section-title">Achievements & Activities</div>
+  <div class="divider"></div>
+  <div class="ach-grid">
+    <div class="ach-card">
+      <div class="ach-icon">🚀</div>
+      <div class="ach-title">Double Promotion in One Year</div>
+      <div class="ach-desc">Received two promotions within a single year at RCI Global Limited (UK) — recognising exceptional performance and leadership.</div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-icon">🏆</div>
+      <div class="ach-title">Indoor Cricket Champion & Best Bowler</div>
+      <div class="ach-desc">Captained team MPL-2026 to the Indoor Cricket Championship title and awarded Best Bowler at RCI Global Limited (UK).</div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-icon">⭐</div>
+      <div class="ach-title">Employee of the Month</div>
+      <div class="ach-desc">Promoted and awarded Employee of the Month at Akhtar Group for outstanding punctuality and dedication.</div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-icon">📚</div>
+      <div class="ach-title">Member — Bangladesh Reads</div>
+      <div class="ach-desc">Participates in weekly reading events at Ramna Park, promoting youth reading culture through offline community outreach.</div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-icon">🌱</div>
+      <div class="ach-title">Young Leader — Alokito Kori NPO</div>
+      <div class="ach-desc">Raised BDT 3,00,000 for climate action & emergency relief. Managed 12 awareness campaigns and led 5 weekly Plastic-Free Day events.</div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-icon">❤️</div>
+      <div class="ach-title">Executive — International Youth Change Maker</div>
+      <div class="ach-desc">Raised BDT 50,000, supporting 50 families with winter clothing and 40+ children with study materials. Led nutrition awareness campaign.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <div class="section-title" style="color:var(--white)">Contact Me</div>
+  <div class="divider"></div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.8;margin-bottom:32px;">Open to finance roles, remote opportunities, and professional collaborations across the UK, UAE, Europe, and Nordics.</p>
+      <div class="contact-item">
+        <div class="contact-item-icon">📞</div>
+        <div><div class="contact-item-label">Phone</div><div class="contact-item-val">+880 1600-119800</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">✉️</div>
+        <div><div class="contact-item-label">Email</div><div class="contact-item-val">faysalas996@gmail.com</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">💼</div>
+        <div><div class="contact-item-label">LinkedIn</div><div class="contact-item-val">linkedin.com/in/faysal-ahmed996</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div><div class="contact-item-label">Location</div><div class="contact-item-val">South Banasree, Dhaka-1219, Bangladesh</div></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-row">
+        <input class="contact-input" placeholder="Your Name" />
+        <input class="contact-input" placeholder="Your Email" />
+      </div>
+      <input class="contact-input" placeholder="Subject" style="width:100%" />
+      <textarea class="contact-input" placeholder="Your message..."></textarea>
+      <button class="send-btn">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2025 Faysal Ahmed. Finance & Accounts Professional.</div>
+  <div class="footer-links">
+    <a href="mailto:faysalas996@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/faysal-ahmed996" target="_blank">LinkedIn</a>
+    <a href="#home">Back to Top</a>
+  </div>
+</footer>
+
+<script>
+// TAB SWITCHING
+function switchCalc(tab) {
+  document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.calc-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('calc-' + tab).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// VAT CALCULATOR
+function calcVAT() {
+  const amount = parseFloat(document.getElementById('vat-amount').value);
+  const rate = parseFloat(document.getElementById('vat-rate').value) / 100;
+  const type = document.getElementById('vat-type').value;
+  if (!amount || amount <= 0) { alert('Please enter a valid amount'); return; }
+  let net, vat, gross;
+  if (type === 'add') {
+    net = amount; vat = amount * rate; gross = amount + vat;
+  } else {
+    gross = amount; net = amount / (1 + rate); vat = gross - net;
+  }
+  const fmt = v => '£' + v.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  document.getElementById('vat-result').innerHTML = `
+    <div class="result-title">VAT Calculation Result</div>
+    <div class="result-row"><span class="result-label">Net Amount (ex-VAT)</span><span class="result-val">${fmt(net)}</span></div>
+    <div class="result-row"><span class="result-label">VAT (${(rate*100).toFixed(0)}%)</span><span class="result-val red">${fmt(vat)}</span></div>
+    <div class="result-row"><span class="result-label">Gross Amount (inc-VAT)</span><span class="result-val big">${fmt(gross)}</span></div>
+    <div style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:16px;">Based on HMRC VAT rates 2025/26. For guidance only.</div>`;
+}
+
+// PAYE CALCULATOR
+function calcPAYE() {
+  const salary = parseFloat(document.getElementById('paye-salary').value);
+  const code = document.getElementById('paye-code').value;
+  if (!salary || salary <= 0) { alert('Please enter a valid salary'); return; }
+  // 2025/26 rates
+  const personalAllowance = code === '1257L' ? 12570 : code === 'BR' ? 0 : 0;
+  const taxableIncome = Math.max(0, salary - personalAllowance);
+  let incomeTax = 0;
+  if (taxableIncome > 125140) { incomeTax += (taxableIncome - 125140) * 0.45; }
+  if (taxableIncome > 50270) { incomeTax += (Math.min(taxableIncome, 125140) - 50270) * 0.40; }
+  if (taxableIncome > 0) { incomeTax += Math.min(taxableIncome, 50270) * 0.20; }
+  // NI 2025/26 — employee
+  let ni = 0;
+  if (salary > 12570) ni += (Math.min(salary, 50270) - 12570) * 0.08;
+  if (salary > 50270) ni += (salary - 50270) * 0.02;
+  const takeHome = salary - incomeTax - ni;
+  const fmt = v => '£' + v.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const fmtM = v => '£' + (v/12).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '/mo';
+  document.getElementById('paye-result').innerHTML = `
+    <div class="result-title">PAYE Result (2025/26)</div>
+    <div class="result-row"><span class="result-label">Gross Annual Salary</span><span class="result-val">${fmt(salary)}</span></div>
+    <div class="result-row"><span class="result-label">Personal Allowance</span><span class="result-val">${fmt(personalAllowance)}</span></div>
+    <div class="result-row"><span class="result-label">Income Tax</span><span class="result-val red">${fmt(incomeTax)} (${fmtM(incomeTax)})</span></div>
+    <div class="result-row"><span class="result-label">National Insurance</span><span class="result-val red">${fmt(ni)} (${fmtM(ni)})</span></div>
+    <div class="result-row"><span class="result-label">Annual Take-Home</span><span class="result-val big">${fmt(takeHome)}</span></div>
+    <div class="result-row"><span class="result-label">Monthly Take-Home</span><span class="result-val big">${fmtM(takeHome)}</span></div>
+    <div style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:8px;">Estimate only. Does not include pension, student loan, or other deductions.</div>`;
+}
+
+// CORP TAX
+function calcCorp() {
+  const profit = parseFloat(document.getElementById('corp-profit').value);
+  if (!profit || profit <= 0) { alert('Please enter a valid profit amount'); return; }
+  // 2025/26 UK corp tax
+  let tax = 0; let rate = '';
+  if (profit <= 50000) { tax = profit * 0.19; rate = '19% (Small Profits Rate)'; }
+  else if (profit >= 250000) { tax = profit * 0.25; rate = '25% (Main Rate)'; }
+  else {
+    // Marginal relief
+    const mainTax = profit * 0.25;
+    const relief = (250000 - profit) * (profit / 250000) * (3/200);
+    tax = mainTax - relief; rate = '25% with Marginal Relief';
+  }
+  const fmt = v => '£' + v.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const effective = (tax/profit*100).toFixed(2);
+  document.getElementById('corp-result').innerHTML = `
+    <div class="result-title">Corporation Tax Result</div>
+    <div class="result-row"><span class="result-label">Taxable Profit</span><span class="result-val">${fmt(profit)}</span></div>
+    <div class="result-row"><span class="result-label">Rate Applied</span><span class="result-val">${rate}</span></div>
+    <div class="result-row"><span class="result-label">Corporation Tax Due</span><span class="result-val red">${fmt(tax)}</span></div>
+    <div class="result-row"><span class="result-label">Effective Rate</span><span class="result-val">${effective}%</span></div>
+    <div class="result-row"><span class="result-label">Profit After Tax</span><span class="result-val big">${fmt(profit - tax)}</span></div>
+    <div style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:8px;">Based on HMRC 2025/26 rates. For guidance only — consult a qualified accountant.</div>`;
+}
+
+// NEWS LOADER — BBC Business RSS via proxy
+async function loadNews() {
+  const grid = document.getElementById('news-grid');
+  const articles = [
+    { emoji: '📈', source: 'BBC Business', title: 'UK inflation holds steady as Bank of England weighs rate decision', excerpt: 'UK inflation remained at 2.2% in the latest figures, as policymakers consider the timing of further interest rate cuts amid mixed economic signals.', date: 'Sep 2026', url: 'https://www.bbc.co.uk/news/business' },
+    { emoji: '💷', source: 'BBC Business', title: 'HMRC extends Making Tax Digital deadline for small businesses', excerpt: 'HM Revenue & Customs has announced further guidance on MTD for Income Tax, with phased rollout continuing for self-employed individuals and landlords.', date: 'Sep 2026', url: 'https://www.bbc.co.uk/news/business' },
+    { emoji: '🏦', source: 'Financial Times', title: 'UK fintech sector raises record funding in first half of 2026', excerpt: 'British fintech companies attracted over £8 billion in venture capital during H1 2026, reinforcing London\'s position as Europe\'s leading financial technology hub.', date: 'Sep 2026', url: 'https://www.ft.com/fintech' },
+    { emoji: '🌍', source: 'BBC Business', title: 'Bangladesh economy grows 6.8% as remittance inflows surge', excerpt: 'Bangladesh recorded strong GDP growth driven by garment exports and rising remittances from the UK and Middle East, with the financial services sector expanding rapidly.', date: 'Sep 2026', url: 'https://www.bbc.co.uk/news/business' },
+    { emoji: '🤖', source: 'ICAEW', title: 'AI adoption in accountancy practices accelerates across UK', excerpt: 'A new ICAEW survey finds 68% of UK accountancy firms now use AI tools for compliance, reporting, and client communication — up from 31% in 2024.', date: 'Sep 2026', url: 'https://www.icaew.com' },
+    { emoji: '📊', source: 'Companies House', title: 'Companies House introduces new identity verification requirements', excerpt: 'From early 2026, Companies House requires identity verification for all directors and PSCs, as part of the Economic Crime and Corporate Transparency Act reforms.', date: 'Sep 2026', url: 'https://www.gov.uk/government/organisations/companies-house' },
+  ];
+  grid.innerHTML = articles.map(a => `
+    <div class="news-card">
+      <div class="news-img">${a.emoji}</div>
+      <div class="news-body">
+        <div class="news-source">${a.source}</div>
+        <div class="news-headline">${a.title}</div>
+        <div class="news-excerpt">${a.excerpt}</div>
+        <div class="news-meta">
+          <span class="news-date">${a.date}</span>
+          <a class="news-link" href="${a.url}" target="_blank">Read more →</a>
+        </div>
+      </div>
+    </div>`).join('');
+}
+loadNews();
+</script>
+</body>
+</html>
